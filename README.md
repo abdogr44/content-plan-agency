@@ -1,240 +1,303 @@
-# Agency Swarm GitHub Template
+# Content Planning Agency
 
-A production-ready template for deploying [Agency Swarm](https://github.com/VRSEN/agency-swarm) agencies with Docker containerization and automated deployment to the [Agencii](https://agencii.ai/) cloud platform.
+A comprehensive AI-powered agency that creates strategic 1-week social media content plans for businesses across Facebook, Instagram, and LinkedIn.
 
-**🌐 [Agencii](https://agencii.ai/)** - The official cloud platform for Agency Swarm deployments  
-**🔗 [GitHub App](https://github.com/apps/agencii)** - Automated deployment integration
+## 🎯 Overview
 
----
+The Content Planning Agency is a specialized multi-agent system that helps businesses create strategic, brand-aligned social media content plans. It collects business information and brand personality data, then generates comprehensive content strategies with detailed daily posts, visual concepts, and hashtag recommendations.
+
+## ✨ Features
+
+### Core Capabilities
+- **Business Information Collection**: Industry analysis, target audience profiling, business goals, and challenges
+- **Brand Personality Assessment**: Voice, tone, values, and personality trait analysis
+- **Platform Selection**: Choose from Facebook, Instagram, LinkedIn, or combinations
+- **Strategic Content Planning**: 1-week content plans with 7 detailed daily posts
+- **Visual Design Guidance**: Specific design suggestions and visual concepts
+- **Hashtag Strategy**: Optimized hashtag combinations for maximum reach and engagement
+
+### Content Plan Structure
+Each daily post includes:
+- **Goal**: Clear objective aligned with business goals
+- **Type of Post**: Platform-optimized content format
+- **Title**: Compelling, brand-aligned headlines
+- **Caption**: Engaging copy that reflects brand voice
+- **Visual Concept**: Specific design recommendations
+- **Hashtags**: Strategic mix of popular and niche hashtags
+
+## 🤖 Agency Architecture
+
+### Agents
+
+#### 1. Content Strategist (Primary Interface)
+- **Role**: Client interface and strategic coordination
+- **Tools**: 5 specialized tools for business analysis and strategy
+- **Responsibilities**: Information collection, strategic analysis, coordination
+
+#### 2. Content Creator
+- **Role**: Daily content generation and calendar assembly
+- **Tools**: 3 tools for content creation and optimization
+- **Responsibilities**: Post generation, content type optimization, calendar building
+
+#### 3. Visual Designer
+- **Role**: Visual concept and design guidance
+- **Tools**: 2 tools for visual analysis and concept generation
+- **Responsibilities**: Brand visual analysis, design suggestions, platform optimization
+
+#### 4. Hashtag Researcher
+- **Role**: Hashtag strategy and platform optimization
+- **Tools**: 2 tools for hashtag research and platform optimization
+- **Responsibilities**: Hashtag research, trend analysis, platform compliance
+
+### Communication Flow
+```
+Content Strategist (User Interface)
+    ↓
+Content Creator (Content Generation)
+    ↓
+Visual Designer + Hashtag Researcher (Specialized Support)
+    ↓
+Content Creator (Final Assembly)
+    ↓
+Content Strategist (Strategy Summary & Delivery)
+```
 
 ## 🚀 Quick Start
 
-### 1. Use This Template
+### Prerequisites
+- Python 3.8+
+- OpenAI API Key
 
-Click **"Use this template"** to create your own repository, or:
+### Installation
 
+1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/agency-github-template.git
-cd agency-github-template
+git clone <repository-url>
+cd content-plan-agency
 ```
 
-> **🌐 For Production**: Sign up at [agencii.ai](https://agencii.ai/) and use this template for automated cloud deployment
-
-### 2. Install Dependencies
-
+2. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Set Up Environment Variables
-
-Create a `.env` file in the root directory:
-
-```bash
-# Required
+3. **Set up environment variables**
+Create a `.env` file in the project root:
+```env
 OPENAI_API_KEY=your_openai_api_key_here
-
-# Optional - Add any additional API keys your agents need
-# EXAMPLE_API_KEY=your_api_key_here
 ```
 
-### 4. Test the Example Agency
-
+4. **Run the agency**
 ```bash
 python agency.py
 ```
 
-This runs the example agency in terminal mode for testing.
+### Getting Your OpenAI API Key
+1. Go to [OpenAI Platform](https://platform.openai.com/api-keys)
+2. Sign in to your account
+3. Click "Create new secret key"
+4. Copy the key and add it to your `.env` file
 
-> **💡 Pro Tip**: For creating your own agency, open this template in [Cursor IDE](https://cursor.sh/) and use the AI assistant with the `.cursor/rules/workflow.mdc` file for automated agency creation!
+## 📋 Usage
 
----
+### Starting a Content Planning Session
 
-## 🏗️ Project Structure
+1. **Launch the agency**
+```bash
+python agency.py
+```
+
+2. **Begin with business information collection**
+The Content Strategist will guide you through:
+   - Industry and business context
+   - Target audience characteristics
+   - Business goals and challenges
+   - Brand personality assessment
+   - Platform selection
+
+3. **Receive your content plan**
+The agency will deliver:
+   - Complete 7-day content calendar
+   - Strategic summary and recommendations
+   - Implementation guidelines
+   - Performance tracking metrics
+
+### Example Workflow
 
 ```
-agency-github-template/
-├── agency.py                 # Main entry point
-├── requirements.txt          # Python dependencies
-├── Dockerfile               # Container configuration
-├── .env                     # Environment variables (create this)
-├── example_agent/           # Your agency folder
-    ├── __init__.py
-    ├── example_agent.py
-    ├── instructions.md
-    ├── files/               # Local files accessible to the agent (via files_folder)
-    └── tools/
-        └── ExampleTool.py
-├── example_agent2/
-├── agency_manifesto.md  # Shared instructions
+User: "I need a content plan for my tech startup"
+
+Content Strategist: "I'll help you create a comprehensive content plan. Let me start by collecting some information about your business..."
+
+[Collects business info, brand personality, platform preferences]
+
+Content Strategist: "Based on your information, I'll now coordinate with our content creation team..."
+
+[Generates 7-day content plan with detailed posts]
+
+Content Strategist: "Here's your complete content plan with strategy summary..."
+```
+
+## 🛠️ Technical Details
+
+### Tools Overview (16 Total)
+
+#### Content Strategist Tools (5)
+- `BusinessIntakeCollector`: Collects comprehensive business information
+- `BrandPersonalityAssessor`: Analyzes brand voice, tone, and values
+- `PlatformSelector`: Manages platform selection and priorities
+- `ContentStrategyAnalyzer`: Creates strategic framework
+- `StrategySummaryGenerator`: Generates comprehensive summaries
+
+#### Content Creator Tools (3)
+- `DailyPostGenerator`: Creates detailed daily content
+- `ContentTypeOptimizer`: Determines optimal post types
+- `ContentCalendarBuilder`: Assembles complete calendar
+
+#### Visual Designer Tools (2)
+- `VisualConceptGenerator`: Creates design suggestions
+- `BrandVisualAnalyzer`: Analyzes brand visual identity
+
+#### Hashtag Researcher Tools (2)
+- `HashtagResearchEngine`: Researches and recommends hashtags
+- `PlatformHashtagOptimizer`: Optimizes for platform compliance
+
+### Framework
+- **Agency Swarm v1.0.1**: Multi-agent orchestration framework
+- **OpenAI GPT-5**: Advanced language model for all agents
+- **Pydantic**: Data validation and type safety
+- **JSON**: Structured data exchange between agents
+
+## 📊 Output Format
+
+### Complete Content Plan Structure
+```json
+{
+  "calendar_overview": {
+    "total_posts": 7,
+    "platforms_covered": ["Instagram", "LinkedIn"],
+    "content_themes": ["Educational", "Behind-the-Scenes", "Problem-Solution"],
+    "calendar_period": "1 week"
+  },
+  "daily_posts": [
+    {
+      "day": 1,
+      "day_name": "Monday",
+      "platform": "Instagram",
+      "goal": "Increase brand awareness",
+      "type_of_post": "Image Post",
+      "title": "How to Optimize Your Social Media Strategy",
+      "caption": "Did you know that... [engaging caption]",
+      "visual_concept": "Clean infographic with brand colors",
+      "hashtags": ["#business", "#marketing", "#entrepreneur"],
+      "brand_alignment": {
+        "voice": "Professional and authoritative",
+        "tone": "Encouraging and supportive"
+      }
+    }
+    // ... 6 more daily posts
+  ],
+  "strategy_summary": {
+    "executive_summary": "Comprehensive overview of strategy",
+    "implementation_guidance": "Step-by-step implementation",
+    "success_metrics": "KPIs and tracking recommendations"
+  }
+}
+```
+
+## 🎨 Customization
+
+### Brand Alignment
+- All content reflects established brand personality
+- Visual concepts align with brand identity
+- Hashtag strategy supports brand voice
+
+### Platform Optimization
+- Facebook: Community-focused, 1-3 hashtags
+- Instagram: Visual-first, 5-15 hashtags
+- LinkedIn: Professional, 3-5 hashtags
+
+### Industry Adaptation
+- Technology: Innovation and trends focus
+- Healthcare: Trust-building and education
+- E-commerce: Product showcase and social proof
+- Professional Services: Thought leadership
+
+## 📈 Success Metrics
+
+### Primary KPIs
+- Engagement rate improvement
+- Reach and impressions growth
+- Lead generation and conversion metrics
+- Brand awareness and recognition
+
+### Content Performance
+- Post engagement rates by platform
+- Content type performance analysis
+- Hashtag effectiveness tracking
+- Audience growth and retention
+
+## 🔧 Development
+
+### Project Structure
+```
+content-plan-agency/
+├── content_strategist/
+│   ├── tools/
+│   ├── files/
+│   └── instructions.md
+├── content_creator/
+│   ├── tools/
+│   ├── files/
+│   └── instructions.md
+├── visual_designer/
+│   ├── tools/
+│   ├── files/
+│   └── instructions.md
+├── hashtag_researcher/
+│   ├── tools/
+│   ├── files/
+│   └── instructions.md
+├── agency.py
+├── shared_instructions.md
 ├── requirements.txt
-├── .env
-└──...
+└── README.md
 ```
 
----
-
-## 🔧 Creating Your Own Agency
-
-### 🤖 **AI-Assisted Agency Creation with Cursor**
-
-This template includes **AI-powered agency creation** using Cursor IDE:
-
-1. **Open this project in Cursor IDE**
-
-2. **Use the AI Assistant** to create your agency by referencing:
-   ```
-   📁 .cursor/rules/workflow.mdc
-   ```
-3. **Simply ask the AI:**
-
-   > "Create a new agency using the .cursor workflow"
-
-   The AI will guide you through the complete 7-step process:
-
-   - ✅ PRD Creation
-   - ✅ Folder Structure Setup
-   - ✅ Tool Development
-   - ✅ Agent Creation
-   - ✅ Agency Configuration
-   - ✅ Testing & Validation
-   - ✅ Iteration & Refinement
-
-### 📋 **What the AI Will Do For You**
-
-The AI assistant will automatically:
-
-- Create proper folder structures
-- Generate agent classes and instructions
-- Build custom tools with full functionality
-- Set up communication flows
-- Create the main agency file
-- Test everything to ensure it works
-
-### 🚀 **Manual Alternative (Advanced Users)**
-
-If you prefer manual setup, replace the `ExampleAgency/` folder with your own agency structure following the Agency Swarm conventions.
-
-### Agency Structure Requirements
-
-Your agency must follow this structure:
-
-- **Agency Folder**: Contains all agents and manifesto
-- **Agent Folders**: Each agent has its own folder with:
-  - `AgentName.py` - Agent class definition
-  - `instructions.md` - Agent-specific instructions
-  - `tools/` - Folder containing agent tools
-- **agency_manifesto.md** - Shared instructions for all agents
-
----
-
-## 🚀 Production Deployment with Agencii
-
-### **🌐 Deploy to Agencii Cloud Platform**
-
-For production deployment, use the [Agencii](https://agencii.ai/) platform:
-
-#### **Step 1: Create Account & Use Template**
-
-1. **Sign up** at [agencii.ai](https://agencii.ai/)
-2. **Use this template** to create your repository
-3. **Develop your agency** using Cursor IDE with `.cursor` workflow
-
-#### **Step 2: Install GitHub App**
-
-1. **Install** the [Agencii GitHub App](https://github.com/apps/agencii)
-2. **Grant permissions** to your repository
-3. **Configure** environment variables in Agencii dashboard
-
-#### **Step 3: Deploy**
-
-1. **Push to main branch** - Agencii automatically detects and deploys
-2. **Monitor deployment** in your Agencii dashboard
-3. **Access your live agency** via provided endpoints
-
-### **🔄 Automatic Deployments**
-
-- **Auto-deploy** on every push to `main` branch
-- **Zero-downtime** deployments with rollback capability
-- **Environment management** through Agencii dashboard
-
----
-
-## 🔨 Development Workflow
-
-### **🎯 Recommended: AI-Assisted Development**
-
-1. **Open Cursor IDE** with this template
-2. **Ask the AI**: _"Create a new agency using the .cursor workflow"_
-3. **Follow the guided process** - the AI handles everything automatically
-4. **Test your agency**: `python agency.py`
-5. **Deploy to production**: Install [Agencii GitHub App](https://github.com/apps/agencii) and push to main
-
-### **⚙️ Manual Development (Advanced)**
-
-If you prefer hands-on development:
-
-1. **Create Tools**: Build agent tools in `tools/` folders
-2. **Configure Agents**: Write `instructions.md` and agent classes
-3. **Test Locally**: Run `python agency.py`
-4. **Deploy**: Push to your preferred platform
-
-The `.cursor/rules/workflow.mdc` file contains the complete development specifications for manual implementation.
-
----
-
-## 📚 Key Features
-
-- **🌐 Agencii Cloud Deploy**: One-click deployment to [Agencii platform](https://agencii.ai/)
-- **🤖 AI-Assisted Creation**: Built-in Cursor IDE workflow for automated agency development
-- **🔄 Auto-Deploy**: Automatic deployment on push to main branch
-- **🚀 Ready-to-Deploy**: Dockerfile and requirements included
-- **🔧 Modular Structure**: Easy to customize and extend
-- **🛠️ Example Implementation**: Complete working example
-- **📦 Container Ready**: Docker configuration for any platform
-- **🔒 Environment Management**: Secure API key handling via Agencii dashboard
-- **🧪 Local Testing**: Terminal demo for development
-- **📋 Guided Workflow**: 7-step process with AI assistance
-
----
-
-## 📖 Learn More
-
-- **[Agency Swarm Documentation](https://agency-swarm.ai/)**
-- **[Agency Swarm GitHub](https://github.com/VRSEN/agency-swarm)**
-
----
+### Adding New Features
+1. Create new tools in appropriate agent folders
+2. Update agent instructions for new capabilities
+3. Modify communication flows in `agency.py`
+4. Test thoroughly before deployment
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Submit a pull request
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Create an issue in the repository
+- Check the documentation
+- Review the example usage
+
+## 🔮 Future Enhancements
+
+- Integration with social media scheduling tools
+- Real-time hashtag trend monitoring
+- A/B testing recommendations
+- Advanced analytics integration
+- Multi-language support
+- Custom industry templates
 
 ---
 
-## ⚡ Quick Tips
-
-- **Start Small**: Begin with 1-2 agents and expand
-- **Test Tools**: Each tool should work independently
-- **Clear Instructions**: Write detailed agent instructions
-- **Environment Setup**: Always use `.env` for API keys
-- **Documentation**: Update instructions as you develop
-
----
-
-**Ready to build your AI agency?** 🤖✨
-
-### 🌐 **Production Route (Recommended)**
-
-1. **Sign up** at [agencii.ai](https://agencii.ai/)
-2. **Use this template** to create your repository
-3. **Install** [Agencii GitHub App](https://github.com/apps/agencii)
-4. **Push to main** → Automatic deployment!
-
-### 🛠️ **Development Route**
-
-Open this template in **Cursor IDE** and ask the AI to create your agency using the `.cursor` workflow. The AI will handle everything from setup to testing automatically!
-
-For manual development, replace the `ExampleAgency` with your own implementation and start deploying intelligent agent systems!
+**Built with Agency Swarm v1.0.1** - The powerful framework for creating collaborative AI agent systems.

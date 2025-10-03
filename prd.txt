@@ -1,0 +1,214 @@
+# Content Planning Agency
+
+---
+
+- **Purpose:** A specialized agency that creates comprehensive 1-week social media content plans for businesses. The agency collects business information and brand personality data, then generates strategic content plans for Facebook, Instagram, and LinkedIn with specific post details including goals, types, titles, captions, visual concepts, and hashtag strategies.
+
+- **Communication Flows:**
+  - **Between Agents:**
+    - **Content Strategist -> Content Creator:** Passes business analysis and strategy framework to generate specific content posts
+    - **Content Creator -> Visual Designer:** Requests visual concepts and design suggestions for each post
+    - **Content Creator -> Hashtag Researcher:** Requests platform-specific hashtag recommendations
+    - **Content Creator -> Content Strategist:** Reports completion and requests strategy summary
+  - **Agent to User Communication:** Direct interaction through the Content Strategist agent who collects business requirements and delivers the final content plan
+
+---
+
+## Content Strategist
+
+### **Role within the Agency**
+
+The Content Strategist serves as the primary interface with users, collecting business information and brand personality data, analyzing requirements, and coordinating the creation of comprehensive content plans. This agent focuses on strategic planning and ensures the final output aligns with business goals.
+
+### Tools
+
+- **BusinessIntakeCollector:**
+  - **Description**: Collects comprehensive business information including industry, target audience, business goals, and current challenges
+  - **Inputs**:
+    - industry (string) - The business industry/sector
+    - target_audience (string) - Demographics and characteristics of ideal customers
+    - business_goals (string) - Primary objectives (awareness, leads, sales, engagement)
+    - current_challenges (string) - Obstacles the business is facing
+  - **Validation**:
+    - All fields required - ensures complete business context
+  - **Core Functions:** [Gather business context, validate completeness, structure data for analysis]
+  - **APIs**: [None - internal data collection]
+  - **Output**: [Structured business information object]
+
+- **BrandPersonalityAssessor:**
+  - **Description**: Collects and analyzes brand personality elements including voice, tone, and core values
+  - **Inputs**:
+    - brand_voice (string) - How the brand communicates (formal, casual, playful, etc.)
+    - brand_tone (string) - Emotional quality of communication
+    - core_values (string) - Fundamental principles and beliefs
+    - brand_personality_adjectives (string) - Descriptive words that define the brand
+  - **Validation**:
+    - All fields required - ensures complete brand personality profile
+  - **Core Functions:** [Collect brand personality data, create personality profile, validate consistency]
+  - **APIs**: [None - internal assessment]
+  - **Output**: [Brand personality profile object]
+
+- **PlatformSelector:**
+  - **Description**: Allows users to select which social media platforms to focus on for content planning
+  - **Inputs**:
+    - selected_platforms (array) - List of chosen platforms from Facebook, Instagram, LinkedIn
+    - platform_priorities (string) - Optional ranking or focus areas for selected platforms
+  - **Validation**:
+    - At least one platform must be selected
+    - Valid platform names only
+  - **Core Functions:** [Validate platform selection, set platform priorities, prepare platform-specific requirements]
+  - **APIs**: [None - internal selection]
+  - **Output**: [Platform selection and configuration object]
+
+- **ContentStrategyAnalyzer:**
+  - **Description**: Analyzes business and brand data to determine optimal content strategy and post types
+  - **Inputs**:
+    - business_data (object) - Complete business information from BusinessIntakeCollector
+    - brand_personality (object) - Brand personality profile from BrandPersonalityAssessor
+    - platform_selection (object) - Selected platforms and priorities
+  - **Validation**:
+    - All input objects must be complete and valid
+  - **Core Functions:** [Analyze business context, determine content themes, recommend post types, create strategy framework]
+  - **APIs**: [None - internal analysis]
+  - **Output**: [Content strategy framework with themes and recommendations]
+
+- **StrategySummaryGenerator:**
+  - **Description**: Creates comprehensive strategy summary and content calendar overview
+  - **Inputs**:
+    - content_plan (object) - Complete 7-day content plan from Content Creator
+    - strategy_framework (object) - Strategic analysis from ContentStrategyAnalyzer
+    - business_goals (string) - Original business objectives
+  - **Validation**:
+    - Content plan must be complete with all 7 days
+  - **Core Functions:** [Generate executive summary, highlight key themes, provide implementation guidance, create success metrics]
+  - **APIs**: [None - internal summary generation]
+  - **Output**: [Comprehensive strategy summary document]
+
+---
+
+## Content Creator
+
+### **Role within the Agency**
+
+The Content Creator is responsible for generating detailed daily content posts based on the strategic framework provided by the Content Strategist. This agent creates specific titles, captions, and coordinates with other agents for visual concepts and hashtags.
+
+### Tools
+
+- **DailyPostGenerator:**
+  - **Description**: Creates detailed content for each day of the week including goals, types, titles, and captions
+  - **Inputs**:
+    - day_number (integer) - Day of the week (1-7)
+    - content_theme (string) - Strategic theme for the day
+    - post_type (string) - Recommended post type from strategy
+    - target_audience (string) - Audience characteristics
+    - brand_voice (string) - Brand communication style
+    - platform (string) - Target platform for the post
+  - **Validation**:
+    - Day number must be 1-7
+    - All content elements must align with brand voice
+  - **Core Functions:** [Generate engaging titles, write compelling captions, set clear goals, ensure platform optimization]
+  - **APIs**: [None - AI content generation]
+  - **Output**: [Complete post details with title, caption, and goal]
+
+- **ContentTypeOptimizer:**
+  - **Description**: Determines optimal post types based on business use case and current market trends
+  - **Inputs**:
+    - industry (string) - Business industry
+    - business_goals (string) - Primary objectives
+    - target_audience (string) - Audience characteristics
+    - platform (string) - Social media platform
+    - day_of_week (string) - Specific day for optimal timing
+  - **Validation**:
+    - Post type must be appropriate for platform and audience
+  - **Core Functions:** [Analyze industry trends, match content types to goals, optimize for platform best practices, consider timing]
+  - **APIs**: [Web search for current trends]
+  - **Output**: [Optimized post type recommendation with reasoning]
+
+- **ContentCalendarBuilder:**
+  - **Description**: Organizes and structures the complete 7-day content plan with all post details
+  - **Inputs**:
+    - daily_posts (array) - Array of 7 daily post objects
+    - visual_concepts (array) - Visual suggestions from Visual Designer
+    - hashtag_sets (array) - Hashtag recommendations from Hashtag Researcher
+  - **Validation**:
+    - Must contain exactly 7 days of content
+    - All posts must have complete details
+  - **Core Functions:** [Merge all content elements, create structured calendar, validate completeness, format for presentation]
+  - **APIs**: [None - internal organization]
+  - **Output**: [Complete 7-day content calendar with all details]
+
+---
+
+## Visual Designer
+
+### **Role within the Agency**
+
+The Visual Designer specializes in creating specific design suggestions and visual concepts for each content post, ensuring visual elements align with brand identity and platform best practices.
+
+### Tools
+
+- **VisualConceptGenerator:**
+  - **Description**: Creates specific design suggestions for each content post including color schemes, layouts, and visual elements
+  - **Inputs**:
+    - post_content (object) - Complete post details including title and caption
+    - brand_colors (string) - Brand color palette
+    - brand_style (string) - Visual style preferences
+    - platform (string) - Target social media platform
+    - content_type (string) - Type of post (image, video, carousel, etc.)
+  - **Validation**:
+    - Visual concepts must be platform-appropriate
+    - Must align with brand identity
+  - **Core Functions:** [Generate specific design suggestions, recommend visual elements, suggest layouts, provide color guidance]
+  - **APIs**: [None - creative visual planning]
+  - **Output**: [Detailed visual concept with specific design recommendations]
+
+- **BrandVisualAnalyzer:**
+  - **Description**: Analyzes brand identity to determine appropriate visual style and design elements
+  - **Inputs**:
+    - brand_personality (object) - Complete brand personality profile
+    - industry (string) - Business industry context
+    - target_audience (string) - Audience visual preferences
+  - **Validation**:
+    - Must consider industry standards and audience expectations
+  - **Core Functions:** [Analyze brand personality for visual translation, determine color psychology, suggest style elements, ensure audience alignment]
+  - **APIs**: [None - visual analysis]
+  - **Output**: [Brand visual guidelines and style recommendations]
+
+---
+
+## Hashtag Researcher
+
+### **Role within the Agency**
+
+The Hashtag Researcher specializes in finding and recommending optimal hashtag strategies for each platform, combining popular and niche hashtags to maximize reach and engagement.
+
+### Tools
+
+- **HashtagResearchEngine:**
+  - **Description**: Researches and recommends hashtag combinations for each post based on content and platform
+  - **Inputs**:
+    - post_content (object) - Complete post details including title and caption
+    - industry (string) - Business industry
+    - target_audience (string) - Audience characteristics
+    - platform (string) - Social media platform
+    - brand_hashtags (array) - Custom branded hashtags
+  - **Validation**:
+    - Must provide mix of popular and niche hashtags
+    - Platform-appropriate hashtag count limits
+  - **Core Functions:** [Research trending hashtags, find niche industry tags, suggest branded hashtags, optimize for platform limits]
+  - **APIs**: [Web search for trending hashtags]
+  - **Output**: [Curated hashtag set with popular, niche, and branded options]
+
+- **PlatformHashtagOptimizer:**
+  - **Description**: Optimizes hashtag strategy for specific platform best practices and limitations
+  - **Inputs**:
+    - hashtag_set (array) - Base hashtag recommendations
+    - platform (string) - Target platform (Facebook, Instagram, LinkedIn)
+    - content_type (string) - Type of content
+  - **Validation**:
+    - Must respect platform hashtag limits and best practices
+  - **Core Functions:** [Apply platform-specific optimization, adjust hashtag count, ensure compliance with best practices]
+  - **APIs**: [None - platform optimization rules]
+  - **Output**: [Platform-optimized hashtag strategy]
+
+---
