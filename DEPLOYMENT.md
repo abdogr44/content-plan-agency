@@ -32,4 +32,4 @@ OPENAI_API_KEY=your_actual_openai_api_key
 
 - The `.env` file is gitignored for security
 - Make sure to use a valid OpenAI API key
-- The agency requires `agency-swarm[fastapi]>=1.0.1` for deployment
+- The agency requires `agency-swarm[fastapi]==1.0.1` for deployment (stable version required)
